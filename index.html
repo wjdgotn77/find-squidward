@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <title>find-squidward</title>
+</head>
+<body>
+  <section class="start-zone hide">
+    <h1 class="game-name">FIND SQUIDWARD</h1>
+    <div class="game-rules">
+      <div>🎮 게임 규칙 🎮</div>
+      <ul>
+        <li>플레이어는 카드 두 장을 클릭해서 뒤집을 수 있습니다.</li>
+        <li>뒤집은 타일의 이미지가 똑같으면 성공입니다.</li>
+        <li>그렇지 않으면 잠시 후 다시 뒤집어집니다.</li>
+        <li>게임 시간은 총 2분입니다.</li>
+      </ul>
+    </div>
+    <button class="start-button" type="button">GameStart</button>
+  </section>
+
+  <section class="play-zone">
+    <div class="progress-bar">
+      <div class="paired-cards">맞춘 카드 수: </div>
+      <div class="limited-time">남은 시간: </div>
+    </div>
+    <div class="cards-container">
+      <div class="cards-row">
+        <div class="cards" data-number="1"></div>
+        <div class="cards" data-number="2"></div>
+        <div class="cards" data-number="3"></div>
+        <div class="cards" data-number="4"></div>
+      </div>
+      <div class="cards-row">
+        <div class="cards" data-number="5"></div>
+        <div class="cards" data-number="6"></div>
+        <div class="cards" data-number="7"></div>
+        <div class="cards" data-number="8"></div>
+      </div>
+      <div class="cards-row">
+        <div class="cards" data-number="9"></div>
+        <div class="cards" data-number="10"></div>
+        <div class="cards" data-number="11"></div>
+        <div class="cards" data-number="12"></div>
+      </div>
+      <div class="cards-row">
+        <div class="cards" data-number="13"></div>
+        <div class="cards" data-number="14"></div>
+        <div class="cards" data-number="15"></div>
+        <div class="cards" data-number="16"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="restart-zone hide">
+    <div class="game-result"> 모두 맞추셨습니다 </div>
+    <div class="result-message">img</div>
+    <button class="restart-button" type="button">RESTART</button>
+  </section>
+
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>

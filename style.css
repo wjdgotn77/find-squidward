@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.start-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #81e0da;
+}
+
+.start-zone .game-name {
+  width: 500px;
+  height: 100px;
+  text-align: center;
+  color: #b490ca;
+}
+
+.start-zone .game-rules {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 300px;
+}
+
+.start-zone .game-rules div {
+  width: 100%;
+  height: 20%;
+  text-align: center;
+  font-size: 24px;
+}
+
+.start-zone .game-rules ul {
+  width:100%;
+  height: 80%;
+  list-style: none;
+  text-align: center;
+  font-size: 18px;
+}
+
+.start-zone .start-button {
+  width: 150px;
+  height: 45px;
+  border: none;
+  background-image: linear-gradient(to right, #5ee7df 0%, #b490ca 100%);
+  border-radius: 25px;
+  box-shadow: 2px 2px 4px #0000007a;
+  font-size: 16px;
+  color: #FFFF;
+  cursor: pointer;
+}
+
+.play-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.play-zone .progress-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 50px;
+}
+
+.play-zone .progress-bar div {
+  width: 250px;
+  text-align: center;
+}
+
+.play-zone .cards-container {
+  display: flex;
+  flex-direction: column;
+}
+.play-zone .cards-container .cards-row {
+  display: flex;
+}
+
+.play-zone .cards-container .cards-row .cards {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #b490ca;
+}
+
+.restart-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width:100vw;
+  height: 100vh;
+  background-color: #b490cac5;
+}
+
+.restart-zone .game-result {
+  width: 500px;
+  height: 50px;
+  text-align: center;
+}
+
+.restart-zone .result-message {
+  width: 300px;
+  height: 300px;
+  text-align: center;
+}
+
+.restart-zone .restart-button {
+  width: 150px;
+  height: 45px;
+  border: none;
+  background-image: linear-gradient(to right, #5ee7df 0%, #b490ca 100%);
+  border-radius: 25px;
+  box-shadow: 2px 2px 4px #0000007a;
+  font-size: 16px;
+  color: #FFFF;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
