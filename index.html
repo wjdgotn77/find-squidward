@@ -4,22 +4,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <title>find-squidward</title>
 </head>
 <body>
-  <section class="start-zone hide">
+  <section class="start-zone">
     <h1 class="game-name">FIND SQUIDWARD</h1>
-    <div class="game-rules">
-      <div>🎮 게임 규칙 🎮</div>
-      <ul>
-        <li>플레이어는 카드 두 장을 클릭해서 뒤집을 수 있습니다.</li>
-        <li>뒤집은 타일의 이미지가 똑같으면 성공입니다.</li>
-        <li>그렇지 않으면 잠시 후 다시 뒤집어집니다.</li>
-        <li>게임 시간은 총 2분입니다.</li>
-      </ul>
+    <div class="introduce-game">
+      <div>카드 맞추기 게임</div>
+      <img src="./asset/images/firstimage.jpg"/>
     </div>
-    <button class="start-button" type="button">GameStart</button>
+    <button class="start-button" type="button">GAMESTART</button>
   </section>
 
   <section class="play-zone">
@@ -29,35 +27,35 @@
     </div>
     <div class="cards-container">
       <div class="cards-row">
-        <div class="cards" data-number="1"></div>
-        <div class="cards" data-number="2"></div>
-        <div class="cards" data-number="3"></div>
-        <div class="cards" data-number="4"></div>
+        <div class="cards"><img id="0" class="front" src="asset/images/frontcardimage.jpg"></div>
+        <div class="cards"><img id="1" class="front" src="asset/images/frontcardimage.jpg"></div>
+        <div class="cards"><img id="2" class="front" src="asset/images/frontcardimage.jpg"></div>
+        <div class="cards"><img id="3" class="front" src="asset/images/frontcardimage.jpg"></div>
       </div>
       <div class="cards-row">
-        <div class="cards" data-number="5"></div>
-        <div class="cards" data-number="6"></div>
-        <div class="cards" data-number="7"></div>
-        <div class="cards" data-number="8"></div>
+        <div class="cards"><img id="4" class="front" src="asset/images/frontcardimage.jpg"></div>
+        <div class="cards"><img id="5" class="front" src="asset/images/frontcardimage.jpg"></div>
+        <div class="cards"><img id="6" class="front" src="asset/images/frontcardimage.jpg"></div>
+        <div class="cards"><img id="7" class="front" src="asset/images/frontcardimage.jpg"></div>
       </div>
       <div class="cards-row">
-        <div class="cards" data-number="9"></div>
-        <div class="cards" data-number="10"></div>
-        <div class="cards" data-number="11"></div>
-        <div class="cards" data-number="12"></div>
+        <div class="cards"><img id="8" class="front" src="asset/images/frontcardimage.jpg"></div>
+        <div class="cards"><img id="9" class="front" src="asset/images/frontcardimage.jpg"></div>
+        <div class="cards"><img id="10" class="front" src="asset/images/frontcardimage.jpg"></div>
+        <div class="cards"><img id="11" class="front" src="asset/images/frontcardimage.jpg"></div>
       </div>
       <div class="cards-row">
-        <div class="cards" data-number="13"></div>
-        <div class="cards" data-number="14"></div>
-        <div class="cards" data-number="15"></div>
-        <div class="cards" data-number="16"></div>
+        <div class="cards"><img id="12" class="front" src="asset/images/frontcardimage.jpg"></div>
+        <div class="cards"><img id="13" class="front" src="asset/images/frontcardimage.jpg"></div>
+        <div class="cards"><img id="14" class="front" src="asset/images/frontcardimage.jpg"></div>
+        <div class="cards"><img id="15" class="front" src="asset/images/frontcardimage.jpg"></div>
       </div>
     </div>
   </section>
 
   <section class="restart-zone hide">
-    <div class="game-result"> 모두 맞추셨습니다 </div>
-    <div class="result-message">img</div>
+    <div class="game-result"></div>
+    <div class="result-message"></div>
     <button class="restart-button" type="button">RESTART</button>
   </section>
 

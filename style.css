@@ -15,9 +15,10 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
+  z-index: 1;
   width: 100vw;
   height: 100vh;
-  background-color: #81e0da;
+  background-color: #FFFF;
 }
 
 .start-zone .game-name {
@@ -27,7 +28,7 @@ body {
   color: #b490ca;
 }
 
-.start-zone .game-rules {
+.start-zone .introduce-game {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,30 +37,29 @@ body {
   height: 300px;
 }
 
-.start-zone .game-rules div {
+.start-zone .introduce-game div {
   width: 100%;
-  height: 20%;
+  height: 20px;
   text-align: center;
-  font-size: 24px;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 18px;
+  color:#b490ca;
 }
 
-.start-zone .game-rules ul {
-  width:100%;
-  height: 80%;
-  list-style: none;
-  text-align: center;
-  font-size: 18px;
+.start-zone .introduce-game img {
+  width: 300px;
+  height: 300px;
+  margin: 20px;
 }
 
 .start-zone .start-button {
   width: 150px;
   height: 45px;
   border: none;
-  background-image: linear-gradient(to right, #5ee7df 0%, #b490ca 100%);
   border-radius: 25px;
-  box-shadow: 2px 2px 4px #0000007a;
+  box-shadow: 2px 2px 4px #2c2c2c7a;
   font-size: 16px;
-  color: #FFFF;
+  color: rgb(34, 34, 34);
   cursor: pointer;
 }
 
@@ -95,9 +95,24 @@ body {
 }
 
 .play-zone .cards-container .cards-row .cards {
+  position: relative;
   width: 100px;
   height: 100px;
   border: 1px solid #b490ca;
+  cursor: pointer;
+}
+
+.play-zone .cards-container .cards-row .cards .front {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  z-index: 0;
+}
+
+.play-zone .cards-container .cards-row .cards .back {
+  width: 100px;
+  height: 100px;
+  z-index: -1;
 }
 
 .restart-zone {
@@ -110,13 +125,15 @@ body {
   top: 0;
   width:100vw;
   height: 100vh;
-  background-color: #b490cac5;
+  background-color: #b490ca;
 }
 
 .restart-zone .game-result {
   width: 500px;
   height: 50px;
   text-align: center;
+  color:#FFFF;
+  font-size: 20px;
 }
 
 .restart-zone .result-message {
@@ -125,15 +142,21 @@ body {
   text-align: center;
 }
 
+.restart-zone .result-message img{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
 .restart-zone .restart-button {
   width: 150px;
   height: 45px;
+  margin: 20px;
   border: none;
-  background-image: linear-gradient(to right, #5ee7df 0%, #b490ca 100%);
   border-radius: 25px;
   box-shadow: 2px 2px 4px #0000007a;
   font-size: 16px;
-  color: #FFFF;
+  color: rgb(34, 34, 34);
   cursor: pointer;
 }
 
