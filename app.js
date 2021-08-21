@@ -5,7 +5,7 @@ const $limitedTime = document.querySelector(".limited-time");
 const $countPairedCards = document.querySelector(".paired-cards");
 const $cardsZone = document.querySelector(".cards-container");
 const $cards = document.querySelectorAll(".cards");
-const frontImages = document.querySelectorAll(".front");
+const $frontImages = document.querySelectorAll(".front");
 
 const $restartZone = document.querySelector(".restart-zone");
 const $restartButton = document.querySelector(".restart-button");
@@ -39,20 +39,30 @@ const GAME_PROPERTIES = {
   TIMEOUT_text: "TIME OUT!!!!!⏰"
 };
 
+const MAIN_AUDIO = new Audio("./asset/audio/main.mp3");
+const WIN_AUDIO = new Audio("./asset/audio/win.mp3");
+
 let randomImageList = [];
 let clickedCards = [];
 let countMatch = 0;
 
-let countTime = 60;
+let countTime = 10;
 let timerId = null;
 let timerAutoFlip = null;
 
 let CLICKED_COUNT = 2;
 
+$startButton.addEventListener("click", handleClickStart);
+$cardsZone.addEventListener("click", handleClickCard);
+$restartButton.addEventListener("click", handleClickRestart);
+shuffleImages(imageList);
+
 function handleClickStart() {
   $startZone.classList.add(GAME_PROPERTIES.HIDE);
-  timerId = setTimeout(setLimitiedTimer,1000);
+  timerId = setTimeout(setLimitiedTimer, 1000);
   shuffleImages(imageList);
+  printShuffleImages();
+  MAIN_AUDIO.play();
 }
 
 function shuffleImages(array) {
@@ -65,7 +75,7 @@ function shuffleImages(array) {
 }
 
 function printShuffleImages() {
-  $cards.forEach((item,number) => {
+  $cards.forEach((item, number) => {
     const createBackImage = document.createElement("img");
     createBackImage.setAttribute("class", "back");
     createBackImage.setAttribute("src", randomImageList[number] );
@@ -73,7 +83,6 @@ function printShuffleImages() {
   });
 }
 
-// 클릭시 이미지 드래그 제거
 function handleClickCard(event) {
   const target = event.target;
   const targetId = target.id;
@@ -94,7 +103,7 @@ function checkedCardsMatch() {
     if (clickedCards[0][1] === clickedCards[1][1]) {
       countMatch++;
       clickedCards = [];
-      $countPairedCards.textContent = `맞춘 카드 수 : ${countMatch}`;
+      $countPairedCards.textContent = `찾은 징징이 : ${countMatch} 쌍`;
 
       winningResult();
     } else {
@@ -105,14 +114,14 @@ function checkedCardsMatch() {
 
 function flippedCards() {
   for (let i = 0; i < CLICKED_COUNT; i++) {
-    frontImages[clickedCards[i][0]].classList.remove(GAME_PROPERTIES.HIDE);
+    $frontImages[clickedCards[i][0]].classList.remove(GAME_PROPERTIES.HIDE);
   }
   clickedCards = [];
 }
 
 function setLimitiedTimer() {
   timerId = setTimeout(setLimitiedTimer, 1000);
-  $limitedTime.textContent = `남은 시간: ${countTime}`;
+  $limitedTime.textContent = `남은 시간: ${countTime} 초`;
   countTime--;
 
   if (countTime !== 0) return;
@@ -120,6 +129,8 @@ function setLimitiedTimer() {
   timeoutResult();
 }
 
+
+// 마지막 버튼을 클릭했을 때 WIN.mp3 재생.
 function winningResult() {
 
   if (countMatch !== 8) return;
@@ -131,6 +142,8 @@ function winningResult() {
   const createWinningImage = document.createElement("img");
   createWinningImage.setAttribute("src", GAME_PROPERTIES.WIN_image);
   $resultImage.appendChild(createWinningImage);
+
+  MAIN_AUDIO.pause();
 }
 
 function timeoutResult() {
@@ -142,33 +155,33 @@ function timeoutResult() {
   const createTimeoutImage = document.createElement("img");
   createTimeoutImage.setAttribute("src", GAME_PROPERTIES.TIMEOUT_image);
   $resultImage.appendChild(createTimeoutImage);
+
+  MAIN_AUDIO.pause();
 }
 
 function handleClickRestart() {
-
-  window.location.reload();
-  //randomImageList = [];
-  //clickedCards = [];
-  //countMatch = 0;
-  //countTime = 60;
-  //timerId = null;
-  //timerAutoFlip = null;
-  //removeContents();
-
-  //$restartZone.classList.add(GAME_PROPERTIES.HIDE);
-  //$startZone.classList.remove(GAME_PROPERTIES.HIDE);
-
+  $restartZone.classList.add(GAME_PROPERTIES.HIDE);
+  $startZone.classList.remove(GAME_PROPERTIES.HIDE);
+  clearContents();
 }
 
-//function removeContents() {
-//}
+function clearContents() {
+  const $deleteBackImage = document.querySelectorAll(".back");
+  $deleteBackImage.forEach((element) => {
+    element.remove();
+  });
 
-function init () {
-  $startButton.addEventListener("click", handleClickStart);
-  $cardsZone.addEventListener("click", handleClickCard);
-  $restartButton.addEventListener("click", handleClickRestart);
-  shuffleImages(imageList);
-  printShuffleImages();
+  const imageForResult = $resultImage.querySelector("img");
+  imageForResult.remove();
+
+  randomImageList = [];
+  clickedCards = [];
+  countMatch = 0;
+  countTime = 10;
+  timerId = null;
+  timerAutoFlip = null;
 }
 
-init();
+// 1. restart 함수 작성  OK!
+// 2. audio 파일 집어넣기
+// 3. css 보강
