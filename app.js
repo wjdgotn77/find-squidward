@@ -46,7 +46,7 @@ let randomImageList = [];
 let clickedCards = [];
 let countMatch = 0;
 
-let countTime = 10;
+let countTime = 25;
 let timerId = null;
 let timerAutoFlip = null;
 
@@ -177,7 +177,7 @@ function clearContents() {
   randomImageList = [];
   clickedCards = [];
   countMatch = 0;
-  countTime = 10;
+  countTime = 25;
   timerId = null;
   timerAutoFlip = null;
 }
