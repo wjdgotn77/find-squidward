@@ -26,7 +26,7 @@ body {
   width: 500px;
   height: 100px;
   text-align: center;
-  color: #b490ca;
+  color: #a6bea4;
 }
 
 .start-zone .introduce-game {
@@ -44,7 +44,7 @@ body {
   text-align: center;
   font-family: 'Do Hyeon', sans-serif;
   font-size: 18px;
-  color:#b490ca;
+  color:#a6bea4;
 }
 
 .start-zone .introduce-game img {
@@ -58,9 +58,10 @@ body {
   height: 45px;
   border: none;
   border-radius: 25px;
+  background-color: #a6bea4;
   box-shadow: 2px 2px 4px #2c2c2c7a;
   font-size: 16px;
-  color: rgb(34, 34, 34);
+  color: #FFFF;
   cursor: pointer;
 }
 
@@ -79,13 +80,15 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 400px;
   height: 50px;
 }
 
 .play-zone .progress-bar div {
-  width: 250px;
-  text-align: center;
+  width: 200px;
+  text-align: left;
+  margin: 10px;
+  color: #a6bea4;
 }
 
 .play-zone .cards-container {
@@ -100,7 +103,7 @@ body {
   position: relative;
   width: 100px;
   height: 100px;
-  border: 1px solid #b490ca;
+  border: 1px solid #a6bea4;
   cursor: pointer;
 }
 
@@ -155,9 +158,10 @@ body {
   margin: 20px;
   border: none;
   border-radius: 25px;
+  background-color: #a6bea4;
   box-shadow: 2px 2px 4px #0000007a;
   font-size: 16px;
-  color: rgb(34, 34, 34);
+  color: #FFFF;
   cursor: pointer;
 }
 
