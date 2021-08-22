@@ -61,9 +61,8 @@ function handleClickStart() {
   timerId = setTimeout(setLimitiedTimer, 1000);
   shuffleImages(imageList);
   printShuffleImages();
-  mainAudio.play();
 
-  console.log(randomImageList);
+  mainAudio.play();
 }
 
 function shuffleImages(array) {
