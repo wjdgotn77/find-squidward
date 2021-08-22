@@ -39,8 +39,7 @@ const GAME_PROPERTIES = {
   TIMEOUT_text: "TIME OUT!!!!!⏰"
 };
 
-const MAIN_AUDIO = new Audio("./asset/audio/main.mp3");
-const WIN_AUDIO = new Audio("./asset/audio/win.mp3");
+const mainAudio = new Audio("./asset/audio/main.mp3");
 
 let randomImageList = [];
 let clickedCards = [];
@@ -62,7 +61,9 @@ function handleClickStart() {
   timerId = setTimeout(setLimitiedTimer, 1000);
   shuffleImages(imageList);
   printShuffleImages();
-  MAIN_AUDIO.play();
+  mainAudio.play();
+
+  console.log(randomImageList);
 }
 
 function shuffleImages(array) {
@@ -129,8 +130,6 @@ function setLimitiedTimer() {
   timeoutResult();
 }
 
-
-// 마지막 버튼을 클릭했을 때 WIN.mp3 재생.
 function winningResult() {
 
   if (countMatch !== 8) return;
@@ -143,7 +142,7 @@ function winningResult() {
   createWinningImage.setAttribute("src", GAME_PROPERTIES.WIN_image);
   $resultImage.appendChild(createWinningImage);
 
-  MAIN_AUDIO.pause();
+  mainAudio.pause();
 }
 
 function timeoutResult() {
@@ -156,7 +155,7 @@ function timeoutResult() {
   createTimeoutImage.setAttribute("src", GAME_PROPERTIES.TIMEOUT_image);
   $resultImage.appendChild(createTimeoutImage);
 
-  MAIN_AUDIO.pause();
+  mainAudio.pause();
 }
 
 function handleClickRestart() {
@@ -173,7 +172,11 @@ function clearContents() {
 
   const imageForResult = $resultImage.querySelector("img");
   imageForResult.remove();
+  $frontImages.forEach((element) => {
+    element.classList.remove(GAME_PROPERTIES.HIDE);
+  });
 
+  $countPairedCards.textContent = `찾은 징징이 :`;
   randomImageList = [];
   clickedCards = [];
   countMatch = 0;
@@ -181,7 +184,3 @@ function clearContents() {
   timerId = null;
   timerAutoFlip = null;
 }
-
-// 1. restart 함수 작성  OK!
-// 2. audio 파일 집어넣기
-// 3. css 보강
