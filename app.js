@@ -38,23 +38,21 @@ const GAME_PROPERTIES = {
   TIMEOUT_image: "./asset/images/timeout.jpg",
   TIMEOUT_text: "TIME OUT!!!!!⏰"
 };
+const CLICKED_COUNT = 2;
 
 const mainAudio = new Audio("./asset/audio/main.mp3");
 
 let randomImageList = [];
-let clickedCards = [];
+let clickedPairedCards = [];
 let countMatch = 0;
 
 let countTime = 25;
 let timerId = null;
 let timerAutoFlip = null;
 
-let CLICKED_COUNT = 2;
-
 $startButton.addEventListener("click", handleClickStart);
 $cardsZone.addEventListener("click", handleClickCard);
 $restartButton.addEventListener("click", handleClickRestart);
-shuffleImages(imageList);
 
 function handleClickStart() {
   $startZone.classList.add(GAME_PROPERTIES.HIDE);
@@ -91,32 +89,31 @@ function handleClickCard(event) {
 
   if (imageBack || !imageFront) return;
 
-  target.classList.add(GAME_PROPERTIES.HIDE);
-  clickedCards.push([Number(targetId), randomImageList[targetId]]);
+  if (clickedPairedCards.length < CLICKED_COUNT) {
+    target.classList.add(GAME_PROPERTIES.HIDE);
+    clickedPairedCards.push([Number(targetId), randomImageList[targetId]]);
 
-  checkedCardsMatch();
+    checkedCardsMatch();
+  }
 }
 
 function checkedCardsMatch() {
-  if (clickedCards.length === CLICKED_COUNT) {
 
-    if (clickedCards[0][1] === clickedCards[1][1]) {
+    if (clickedPairedCards[0][1].includes(clickedPairedCards[1][1])) {
       countMatch++;
-      clickedCards = [];
+      clickedPairedCards = [];
       $countPairedCards.textContent = `찾은 징징이 : ${countMatch} 쌍`;
-
       winningResult();
     } else {
       timerAutoFlip = setTimeout(flippedCards, 300);
     }
-  }
 }
 
 function flippedCards() {
   for (let i = 0; i < CLICKED_COUNT; i++) {
-    $frontImages[clickedCards[i][0]].classList.remove(GAME_PROPERTIES.HIDE);
+    $frontImages[clickedPairedCards[i][0]].classList.remove(GAME_PROPERTIES.HIDE);
   }
-  clickedCards = [];
+  clickedPairedCards = [];
 }
 
 function setLimitiedTimer() {
@@ -177,7 +174,7 @@ function clearContents() {
 
   $countPairedCards.textContent = `찾은 징징이 :`;
   randomImageList = [];
-  clickedCards = [];
+  clickedPairedCards = [];
   countMatch = 0;
   countTime = 25;
   timerId = null;
